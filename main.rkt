@@ -6,7 +6,7 @@
          scriblib/bibtex
          racket/list)
 (require (for-syntax racket/base syntax/parse))
-(provide chapter part chapter-ref part-ref cite citet gen-bib)
+(provide chapter part chapter-ref part-ref ~cite citet gen-bib)
 
 (define chapter-ref secref)
 (define Chapter-ref Secref)
@@ -92,4 +92,4 @@
 (define-includer include-acknowledgments "acknowledgments")
 
 
-(define-bibtex-cite "bib.bib" cite citet gen-bib)
+(define-bibtex-cite "bib.bib" ~cite citet gen-bib)
