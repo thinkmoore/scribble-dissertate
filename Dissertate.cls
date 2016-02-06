@@ -25,7 +25,7 @@
 \RequirePackage{verbatim}
 
 % Fonts.
-\RequirePackage{color}
+\RequirePackage[usenames,dvipsnames]{color}
 \usepackage{hyperref}
 \RequirePackage{url}
 \RequirePackage{amssymb}
@@ -106,7 +106,7 @@
 % Some definitions.
 \def\degreeyear#1{\gdef\@degreeyear{#1}}
 \def\degreemonth#1{\gdef\@degreemonth{#1}}
-\def\degree#1{\gdef\@degree{#1}}
+\def\degreename#1{\gdef\@degreename{#1}}
 \def\advisor#1{\gdef\@advisor{#1}}
 \def\department#1{\gdef\@department{#1}}
 \def\field#1{\gdef\@field{#1}}
@@ -140,16 +140,6 @@
 
 % Formatting guidelines found in:
 % http://www.gsas.harvard.edu/publications/form_of_the_phd_dissertation.php
-\renewcommand{\frontmatter}{
-	\input{frontmatter/personalize}
-	\maketitle
-	\copyrightpage
-	\abstractpage
-	\tableofcontents
-	% \listoffigures % optional
-	\dedicationpage
-	\acknowledgments
-}
 
 \renewcommand{\maketitle}{
 	\thispagestyle{empty}
@@ -162,7 +152,7 @@
 	\theauthor\\ to\\ The Department of \@department\\
 	\vspace{12pt}
 	in partial fulfillment of the requirements\\
-	for the degree of\\ \@degree\\
+	for the degree of\\ \@degreename\\
 	in the subject of\\ \@field\\
 	\vspace{12pt}
 	\@university\\ \@universitycity, \@universitystate\\
@@ -181,7 +171,7 @@
 	\rm
 }
 
-\newcommand{\abstractpage}{
+\newcommand{\abstractpage}[1]{
 	\newpage
 	\pagenumbering{roman}
 	\setcounter{page}{3}
@@ -194,22 +184,22 @@
 	\vspace*{20pt}
 	\scshape Abstract \\ \rm
 	\end{center}
-	\input{frontmatter/abstract}
+        {#1}
 	\vspace*{\fill}
 	\newpage \lhead{} \rhead{}
 	\cfoot{\thepage}
 }
 
-\newcommand{\dedicationpage}{
+\newcommand{\dedicationpage}[1]{
 	\newpage \thispagestyle{fancy} \vspace*{\fill}
-	\scshape \noindent \input{frontmatter/dedication}
+	\scshape \noindent #1
 	\vspace*{\fill} \newpage \rm
 }
 
-\newcommand{\acknowledgments}{
+\newcommand{\acknowledgments}[1]{
 	\chapter*{Acknowledgments}
 	\noindent
-	\input{frontmatter/thanks}
+        #1
 	\vspace*{\fill} \newpage
 	\setcounter{page}{1}
 	\pagenumbering{arabic}

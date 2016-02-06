@@ -1,15 +1,16 @@
 #lang racket/base
 (require scribble/doclang
-         scribble/core
-         scribble/base
-         scribble/sigplan
-         scribble/latex-properties
+         (rename-in scribble/core [part sc:part])
+         (except-in scribble/base table-of-contents)
+         scribble/private/defaults
          racket/list
+         racket/include
          setup/collects
          "main.rkt"
          (for-syntax racket/base))
 (provide (except-out (all-from-out scribble/doclang) #%module-begin)
          (all-from-out "main.rkt")
+         (all-from-out racket/include)
          (all-from-out scribble/base)
          (rename-out [module-begin #%module-begin]))
 
@@ -19,10 +20,9 @@
      #`(#%module-begin id post-process () . body)]))
 
 (define (post-process doc)
-  (struct-copy part doc
-               [style (make-style
-                       (style-name (part-style doc))
-                       (list (make-latex-defaults
-                              (string->bytes/utf-8 "\\documentclass{Dissertate}\n")
-                              (path->collects-relative (collection-file-path "Dissertate.cls" "dissertate"))
-                              empty)))]))
+  (add-defaults doc
+                (string->bytes/utf-8 "\\documentclass{Dissertate}\n")
+                (path->collects-relative (collection-file-path "style.tex" "dissertate"))
+                (list
+                 (path->collects-relative (collection-file-path "Dissertate.cls" "dissertate")))
+                #f))
