@@ -83,6 +83,7 @@
   (listoffigures "listoffigures")
   (doublespacing "doublespacing")
   (clearpage "clearpage")
+  (setstretch "setstretch")
   (bibliographystyle "bibliographystyle")
   (todo "todo"))
 
