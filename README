@@ -1,0 +1,6 @@
+Scribble Dissertate
+===================
+
+This is a scribble port of the excellent Disserate latex template for Harvard dissertations, available at https://github.com/suchow/Dissertate. Scribble integration was adapted from the scribble version of the classicthesis template at https://github.com/stamourv/classicthesis-scribble.
+
+There is an example document in the ```examples``` directory. Compile it with ```raco scribble --latex test.scrbl && xelatex test```.

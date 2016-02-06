@@ -3,6 +3,7 @@
          (rename-in scribble/core [part sc:part])
          (except-in scribble/base table-of-contents)
          scribble/private/defaults
+         scriblib/figure
          racket/list
          racket/include
          setup/collects
@@ -12,6 +13,7 @@
          (all-from-out "main.rkt")
          (all-from-out racket/include)
          (all-from-out scribble/base)
+         (all-from-out scriblib/figure)
          (rename-out [module-begin #%module-begin]))
 
 (define-syntax (module-begin stx)

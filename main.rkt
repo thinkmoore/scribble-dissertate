@@ -1,7 +1,12 @@
 #lang racket/base
-(require scribble/core scribble/base scribble/decode scribble/latex-properties racket/list)
+(require scribble/core
+         scribble/base
+         scribble/decode
+         scribble/latex-properties
+         scriblib/bibtex
+         racket/list)
 (require (for-syntax racket/base syntax/parse))
-(provide chapter part chapter-ref part-ref)
+(provide chapter part chapter-ref part-ref cite citet gen-bib)
 
 (define chapter-ref secref)
 (define Chapter-ref Secref)
@@ -77,9 +82,13 @@
   (tableofcontents "tableofcontents")
   (listoffigures "listoffigures")
   (doublespacing "doublespacing")
+  (clearpage "clearpage")
+  (bibliographystyle "bibliographystyle")
   (todo "todo"))
 
 (define-includer include-abstract "abstractpage")
 (define-includer include-dedication "dedicationpage")
 (define-includer include-acknowledgments "acknowledgments")
 
+
+(define-bibtex-cite "bib.bib" cite citet gen-bib)
