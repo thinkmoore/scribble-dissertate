@@ -5,7 +5,7 @@
          scribble/sigplan
          scribble/latex-properties
          racket/list
-         setup/main-collects
+         setup/collects
          "main.rkt"
          (for-syntax racket/base))
 (provide (except-out (all-from-out scribble/doclang) #%module-begin)
@@ -24,5 +24,5 @@
                        (style-name (part-style doc))
                        (list (make-latex-defaults
                               (string->bytes/utf-8 "\\documentclass{Dissertate}\n")
-                              (path->main-collects-relative "dissertate/Dissertate.cls")
+                              (path->collects-relative (collection-file-path "Dissertate.cls" "dissertate"))
                               empty)))]))
