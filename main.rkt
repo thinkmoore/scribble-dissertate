@@ -6,7 +6,7 @@
          scriblib/bibtex
          racket/list)
 (require (for-syntax racket/base syntax/parse))
-(provide chapter part chapter-ref part-ref ~cite citet gen-bib)
+(provide chapter part chapter-ref part-ref ~cite citet gen-bib savequote)
 
 (define chapter-ref secref)
 (define Chapter-ref Secref)
@@ -93,3 +93,20 @@
 
 
 (define-bibtex-cite "bib.bib" ~cite citet gen-bib)
+
+(define quote-style
+  (make-style "Dquote" (list 'multicommand)))
+(define quote-no-author-style
+  (make-style "Dquotenoauthor" (list 'multicommand)))
+
+(define (savequote #:width [width "20em"] #:author [author #f] text)
+  (if author
+      (make-nested-flow
+       quote-style
+       (list (make-paragraph (make-style #f '()) width)
+             (make-paragraph (make-style #f '()) author)
+             (make-paragraph (make-style #f '()) text)))
+      (make-nested-flow
+       quote-no-author-style
+       (list (make-paragraph (make-style #f '()) width)
+             (make-paragraph (make-style #f '()) text)))))
