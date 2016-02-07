@@ -30,12 +30,12 @@
 \RequirePackage{url}
 \RequirePackage{amssymb}
 \RequirePackage{mathspec}
-\setmathsfont(Digits,Latin,Greek)[Numbers={Proportional}]{EB Garamond}
-\setmathrm{EB Garamond}
+\setmathsfont(Digits,Latin,Greek)[Numbers={Proportional}]{Minion Pro}
+\setmathrm{Minion Pro}
 \widowpenalty=300
 \clubpenalty=300
-\setromanfont[Numbers=OldStyle, Ligatures={Common, TeX}, Scale=1.0]{EB Garamond}
-\newfontfamily{\smallcaps}[RawFeature={+c2sc,+scmp}]{EB Garamond}
+\setromanfont[Numbers=OldStyle, Ligatures={Common, TeX}, Scale=1.0]{Minion Pro}
+\newfontfamily{\smallcaps}[RawFeature={+c2sc,+scmp}]{Minion Pro}
 \setsansfont[Scale=MatchLowercase, BoldFont={Lato Bold}]{Lato Regular}
 \setmonofont[Scale=MatchLowercase]{Source Code Pro}
 \RequirePackage[labelfont={bf,sf,footnotesize,singlespacing},
