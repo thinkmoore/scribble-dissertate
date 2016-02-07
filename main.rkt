@@ -94,19 +94,13 @@
 
 (define-bibtex-cite "bib.bib" ~cite citet gen-bib)
 
-(define quote-style
-  (make-style "Dquote" (list 'multicommand)))
-(define quote-no-author-style
-  (make-style "Dquotenoauthor" (list 'multicommand)))
-
 (define (savequote #:width [width "20em"] #:author [author #f] text)
-  (if author
-      (make-nested-flow
-       quote-style
-       (list (make-paragraph (make-style #f '()) width)
-             (make-paragraph (make-style #f '()) author)
-             (make-paragraph (make-style #f '()) text)))
-      (make-nested-flow
-       quote-no-author-style
-       (list (make-paragraph (make-style #f '()) width)
-             (make-paragraph (make-style #f '()) text)))))
+  (make-paragraph
+   (make-style 'pretitle '())
+   (make-element
+    (make-style "topquote"                
+                (list (make-command-extras (list width))))
+    (if author
+        (list (make-element (make-style #f '()) text)
+              (make-element (make-style "qauthor" '()) author))
+        (make-element (make-style #f '()) text)))))
