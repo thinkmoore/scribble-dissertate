@@ -6,7 +6,7 @@
          scriblib/bibtex
          racket/list)
 (require (for-syntax racket/base syntax/parse))
-(provide chapter part chapter-ref part-ref ~cite citet gen-bib savequote)
+(provide chapter part chapter-ref part-ref ~cite citet gen-bib chapterquote)
 
 (define chapter-ref secref)
 (define Chapter-ref Secref)
@@ -94,7 +94,7 @@
 
 (define-bibtex-cite "bib.bib" ~cite citet gen-bib)
 
-(define (savequote #:width [width "20em"] #:author [author #f] text)
+(define (chapterquote #:width [width "20em"] #:author [author #f] text)
   (make-paragraph
    (make-style 'pretitle '())
    (make-element
