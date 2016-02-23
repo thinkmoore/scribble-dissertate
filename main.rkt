@@ -3,6 +3,7 @@
          scribble/base
          scribble/decode
          scribble/latex-properties
+         scriblib/autobib
          scriblib/bibtex
          racket/list)
 (require (for-syntax racket/base syntax/parse))
@@ -92,7 +93,7 @@
 (define-includer include-acknowledgments "acknowledgments")
 
 
-(define-bibtex-cite "bib.bib" ~cite citet gen-bib)
+(define-bibtex-cite "bib.bib" ~cite citet gen-bib #:style number-style)
 
 (define (chapterquote #:width [width "20em"] #:author [author #f] text)
   (make-paragraph
