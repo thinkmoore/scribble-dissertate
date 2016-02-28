@@ -38,13 +38,13 @@
 \newfontfamily{\smallcaps}[RawFeature={+c2sc,+scmp}]{Minion Pro}
 \setsansfont[Scale=MatchLowercase, BoldFont={Lato Bold}]{Lato Regular}
 \setmonofont[Scale=MatchLowercase]{Source Code Pro}
-\RequirePackage[labelfont={bf,sf,footnotesize,singlespacing},
-                textfont={sf,footnotesize,singlespacing},
-                justification={justified,RaggedRight},
-                singlelinecheck=false,
-                margin=0pt,
-                figurewithin=chapter,
-                tablewithin=chapter]{caption}
+%% \RequirePackage[labelfont={bf,sf,footnotesize,singlespacing},
+%%                 textfont={sf,footnotesize,singlespacing},
+%%                 justification={justified,RaggedRight},
+%%                 singlelinecheck=false,
+%%                 margin=0pt,
+%%                 figurewithin=chapter,
+%%                 tablewithin=chapter]{caption}
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
 % Headings and headers.
