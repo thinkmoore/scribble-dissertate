@@ -5,7 +5,8 @@
          scribble/latex-properties
          scriblib/autobib
          scriblib/bibtex
-         racket/list)
+         racket/list
+         racket/string)
 (require (for-syntax racket/base syntax/parse))
 (provide chapter part chapter-ref part-ref ~cite citet gen-bib chapterquote latex)
 
@@ -106,7 +107,7 @@
               (make-element (make-style "qauthor" '()) author))
         (make-element (make-style #f '()) text)))))
 
-(define (latex txt)
+(define (latex . txt)
   (make-element
    (make-style #f '(exact-chars))
    txt))
