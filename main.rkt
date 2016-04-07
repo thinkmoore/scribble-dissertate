@@ -8,7 +8,7 @@
          racket/list
          racket/string)
 (require (for-syntax racket/base syntax/parse))
-(provide chapter part chapter-ref part-ref ~cite citet gen-bib chapterquote latex)
+(provide chapter part chapter-ref part-ref ~cite citet gen-bib chapterquote latex paragraph)
 
 (define chapter-ref secref)
 (define Chapter-ref Secref)
@@ -111,4 +111,3 @@
   (make-element
    (make-style #f '(exact-chars))
    txt))
-
