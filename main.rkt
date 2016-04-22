@@ -94,7 +94,8 @@
 (define-includer include-acknowledgments "acknowledgments")
 
 
-(define-bibtex-cite "bib.bib" ~cite citet gen-bib #:style number-style)
+;(define-bibtex-cite "bib.bib" ~cite citet gen-bib #:style number-style)
+(define-cite ~cite citet gen-bib #:style number-style)
 
 (define (chapterquote #:width [width "20em"] #:author [author #f] text)
   (make-paragraph
