@@ -84,6 +84,7 @@
   (tableofcontents "tableofcontents")
   (listoffigures "listoffigures")
   (doublespacing "doublespacing")
+  (singlespacing "singlespacing")
   (clearpage "clearpage")
   (setstretch "setstretch")
   (bibliographystyle "bibliographystyle")
